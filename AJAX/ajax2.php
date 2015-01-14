@@ -7,11 +7,20 @@ if($b=="+")
 {
 $result=$a+$c;
 }
+
 if($b=='-')
 {
 	$result=$a-$c;
 	
 }
+
+
+
+
+
+
+
+
 if($b=='*')
 {
 	$result=$a*$c;
