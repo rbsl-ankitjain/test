@@ -1,0 +1,51 @@
+<html>
+<head>
+ <title>Example2</title>
+<script>
+
+function calculate() {
+  var number1=document.getElementById("numb1").value;
+  var op=document.getElementById("type").value;
+  var number2=document.getElementById("numb3").value;
+  var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "ajax2.php?a="+number1+"&b="+op+"&c="+number2, true);
+	xmlhttp.send();
+	xmlhttp.onreadystatechange = function() {
+     	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+     
+     		document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+			}
+	}
+ 
+
+}
+
+</script>
+
+
+</head>
+
+<body>
+	<strong>  <label for="number1"> Number 1 : </label></strong> <input type="text" id="numb1"  onkeyup="calculate()"/><br><br>
+	<strong> <label for="operator"> Operator : </label> </strong>
+
+							<select class="input" id="type" onchange="calculate()">
+					      <option  selected="selected" value="+">ADD</option>
+  							<option value="-">SUBTRACT</option>
+  							<option value="*">MULTIPLY</option>
+  							<option value="/">DIVIDE</option>
+							</select>
+<br><br>
+
+
+  <strong><label for="operator"> Number 2 : </label> </strong><input type="text" id="numb3"  onkeyup="calculate()" /><br><br>
+
+  <label for="operator"> Get Result: </label><span id="txtHint"></span> <br><br>
+
+
+
+
+
+</body>
+
+</html>
